@@ -1,4 +1,4 @@
-from root import root
+from tree import tree
 
 operatorPrecedence = ['(', ')']
 
@@ -54,7 +54,7 @@ def toList(string):
     
     return result
     
-def toRoot(listExpression):
+def toTree(listExpression):
     setNodes(listExpression, ['/', '*'])
     setNodes(listExpression, ['+', '-'])
 
@@ -68,15 +68,15 @@ def setNodes(listExpression, operators):
         if listExpression[t] in operators: #O indíce T é um operador que está sendo criado na árvore
             if t > 0: #A ramificação tem algum elemento a esquerda
                 if type(listExpression[t-1]) == list: #O elemento a esquerda precisa ser ramificado recursivamente
-                    listExpression[t-1] = toRoot(listExpression[t-1])
+                    listExpression[t-1] = toTree(listExpression[t-1])
                 
 
             if t+1 < len(listExpression): #Existe algum elemento a direita
                 if type(listExpression[t+1]) == list:#O elemento a direita precisa ser ramificado recursivamente
-                    listExpression[t+1] = toRoot(listExpression[t+1])
+                    listExpression[t+1] = toTree(listExpression[t+1])
                     
                     
-            listExpression[t] = root(listExpression[t-1:t+2]) #converte para o tipo Root o elemento atual, o anterior e o próximo
+            listExpression[t] = tree(listExpression[t-1:t+2]) #converte para o tipo tree o elemento atual, o anterior e o próximo
             del(listExpression[t+1])
             del(listExpression[t-1])         
             t -= 1
@@ -84,9 +84,12 @@ def setNodes(listExpression, operators):
         
         t += 1
         
-                
+
+def createTree(string):
+    return toTree(toList(string.replace(' ', '')))  
+
 def resolve(string):
-    r = toRoot(toList(string.replace(' ', '')))
+    r = createTree(string)
     return r.resolve()
 
 

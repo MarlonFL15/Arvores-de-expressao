@@ -6,7 +6,7 @@ ops = {
     '/' : operator.truediv,  
 }
 
-class root(object):
+class tree(object):
     def __init__(self, values, start='', end=''):
         self.op = values[1] #+, -, *, /
         self.left = values[0]
@@ -19,7 +19,8 @@ class root(object):
         return f'{self.value}'
 
     def resolve(self):
-        resultLeft = self.left.resolve() if type(self.left) == root else self.left
-        resultRight = self.right.resolve() if type(self.right) == root else self.right
+        resultLeft = self.left.resolve() if type(self.left) == tree else self.left
+        resultRight = self.right.resolve() if type(self.right) == tree else self.right
 
         return ops[self.op](float(resultLeft), float(resultRight))
+
