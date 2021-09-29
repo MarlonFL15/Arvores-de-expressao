@@ -1,7 +1,7 @@
 from tree import tree
+import networkx as nx
 
 operatorPrecedence = ['(', ')']
-
         
 def toList(string):
     result = []
@@ -62,7 +62,6 @@ def toTree(listExpression):
     
 def setNodes(listExpression, operators):
     t = 0
-
     
     while t != len(listExpression):
         if listExpression[t] in operators: #O indíce T é um operador que está sendo criado na árvore
@@ -83,7 +82,6 @@ def setNodes(listExpression, operators):
 
         
         t += 1
-        
 
 def createTree(string):
     return toTree(toList(string.replace(' ', '')))  

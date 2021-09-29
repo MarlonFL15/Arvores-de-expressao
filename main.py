@@ -1,7 +1,11 @@
-from functions import resolve
+
 from functions import createTree
 
-print(resolve('(50 / (5+5)) + 9 - (2*2)'))
+#Cria a estrutura da árvore
+r = createTree('(1 / 1) + 2 - (3 * 1)')
 
-r = createTree('(50 / (5+5)) + 9 - (2*2)')
+#Resolve a expressão
 print(r.resolve())
+
+#Desenha a árvore gerada
+r.draw()
