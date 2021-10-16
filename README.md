@@ -5,7 +5,12 @@ Implementação e visualização de árvores binárias de expressão usando ling
 
 ## Como usar
 
-O primeiro passo é importar e usar a função `createTree`, que é responsável por converter uma string para uma árvore binária de expressão.
+Antes de tudo, precisamos baixar o projeto e entrar no diretório.
+
+    $ git clone https://github.com/MarlonFL15/Arvores-de-expressao.git
+    $ cd Arvores-de-expressao
+
+Os próximos passos são importar e usar a função `createTree`, que é responsável por converter uma string para uma árvore binária de expressão.
 
 ```
 #Importa a função
