@@ -5,10 +5,11 @@ Implementação e visualização de árvores binárias de expressão usando ling
 
 ## Como usar
 
-Antes de tudo, precisamos baixar o projeto e entrar no diretório:
+Antes de tudo, precisamos baixar o projeto, entrar no diretório e instalar as bibliotecas utilizadas:
 
     $ git clone https://github.com/MarlonFL15/Arvores-de-expressao.git
     $ cd Arvores-de-expressao
+    $ pip install -r requirements.txt
 
 Os próximos passos são importar e usar a função `createTree`, que é responsável por converter uma string para uma árvore binária de expressão:
 
